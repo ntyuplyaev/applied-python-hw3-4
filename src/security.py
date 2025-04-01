@@ -59,7 +59,6 @@ async def get_current_user(
     return user
 
 
-# Создаем новый экземпляр OAuth2PasswordBearer с отключенной автоматической ошибкой
 oauth2_scheme_optional = OAuth2PasswordBearer(
     tokenUrl="auth/login",
     auto_error=False
