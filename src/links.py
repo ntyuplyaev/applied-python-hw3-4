@@ -46,9 +46,9 @@ router = APIRouter(prefix="/links")
 def create_short_link(
     link: LinkCreate,
     db: Session = Depends(get_db),
-    current_user: Optional[User] = Depends(get_optional_user)  # Измененная зависимость
+    current_user: Optional[User] = Depends(get_optional_user)  
 ):
-    # Существующая логика остается без изменений
+
     expires_at = handle_expiration(link.expires_at)
 
     if link.custom_alias:
@@ -72,7 +72,7 @@ def create_short_link(
         short_code=short_code,
         custom_alias=link.custom_alias,
         expires_at=expires_at,
-        user_id=current_user.id if current_user else None  # Уже поддерживает None
+        user_id=current_user.id if current_user else None  
     )
 
     db.add(db_link)
